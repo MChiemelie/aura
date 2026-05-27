@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default async function SignUpPage() {
   async function signUpWithEmail(formData) {
     "use server";
@@ -37,9 +39,9 @@ export default async function SignUpPage() {
         </button>
         <p className='text-center text-gray-600'>
           Already have an account?{" "}
-          <a href='/sign-in' className='text-blue-500 hover:underline'>
+          <Link href='/sign-in' className='text-blue-500 hover:underline'>
             Sign In
-          </a>
+          </Link>
         </p>
       </form>
     </div>
