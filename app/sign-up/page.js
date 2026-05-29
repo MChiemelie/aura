@@ -1,10 +1,7 @@
+import { signUpWithEmail } from "@/services/auth";
 import Link from "next/link";
 
 export default async function SignUpPage() {
-  async function signUpWithEmail(formData) {
-    "use server";
-    //
-  }
   return (
     <div className='flex items-center justify-center h-screen'>
       <form action={signUpWithEmail} className='flex flex-col gap-4 w-[40%]'>

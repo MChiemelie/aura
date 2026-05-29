@@ -1,4 +1,4 @@
-export function Greeting() {
+export function Greeting({name}) {
   const date = new Date();
   const hour = date.getHours();
 
@@ -9,5 +9,5 @@ export function Greeting() {
         ? "Good afternoon"
         : "Good evening";
 
-  return <h1 className='text-2xl font-bold'>{greeting}, Chiemelie!</h1>;
+  return <h1 className='text-2xl font-bold'>{greeting}, {name}!</h1>;
 }

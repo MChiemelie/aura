@@ -1,13 +1,17 @@
 import { Greeting } from "@/components/greeting";
-import { signOut } from "@/services/auth";
+import WeatherDashboard from "@/components/weather-dashboard";
+import { getUser, signOut } from "@/services/auth";
 import { initializePayment } from "@/services/payments";
 
-export default function Home() {
-  const paid = false;
+export default async function Home() {
+  const user = await getUser();
+  const { name, email, paid } = user;
+
+  console.log(user);
 
   return (
-    <main className='flex flex-col sm:flex-row items-center p-4 justify-between gap-4 mx-auto sm:mx-0'>
-      <Greeting />
+    <main className='flex flex-col items-center p-4 justify-between gap-4 mx-auto sm:mx-0'>
+      <Greeting name={name} />
       <div className='flex gap-4'>
         <form action={signOut}>
           <button type='submit' className='p-2 rounded text-sm'>
@@ -22,7 +26,8 @@ export default function Home() {
           </form>
         )}
       </div>
-      {/* <WeatherDashboard /> */}
+      <p>You are logged in as ({email})</p>
+      <WeatherDashboard />
     </main>
   );
 }
