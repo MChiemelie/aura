@@ -7,8 +7,6 @@ export default async function Home() {
   const user = await getUser();
   const { name, email, paid } = user;
 
-  console.log(user);
-
   return (
     <main className='flex flex-col items-center p-4 justify-between gap-4 mx-auto sm:mx-0'>
       <Greeting name={name} />
