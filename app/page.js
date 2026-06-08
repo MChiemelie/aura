@@ -2,10 +2,15 @@ import { Greeting } from "@/components/greeting";
 import WeatherDashboard from "@/components/weather-dashboard";
 import { getUser, signOut } from "@/services/auth";
 import { initializePayment } from "@/services/payments";
+import { redirect } from "next/navigation";
 
 export default async function Home() {
   const user = await getUser();
+
+  if (!user) redirect("/sign-in");
+
   const { name, email, paid } = user;
+
 
   return (
     <main className='flex flex-col items-center p-4 justify-between gap-4 mx-auto sm:mx-0'>

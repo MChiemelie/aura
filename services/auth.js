@@ -114,8 +114,6 @@ export async function getUser() {
     tableId: appwriteConfig.usersTableId,
     queries: [Query.equal("email", [loggedInUser.email])],
   });
-
-  console.log(response.rows[0]);
-
+  
   return response.rows[0] || null;
 }
