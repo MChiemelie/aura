@@ -22,5 +22,5 @@ export default function proxy(req) {
 }
 
 export const config = {
-  matcher: ["/((?!api/payments|api|_next/static|_next/image|.*\\.png$).*)"],
+  matcher: ["/((?!api/payments|api|_next/static|_next/image|.*\\.png$|.*\\.html$).*)"],
 };
